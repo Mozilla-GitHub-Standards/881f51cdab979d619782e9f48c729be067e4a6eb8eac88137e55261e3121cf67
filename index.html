@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="cs">
+	<head>
+		<meta charset="UTF-8">
+		<title>Přihláška do spolku MZ Česko, z.s.</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/print.css" media="print">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+		<script src="js/script.js"></script>
+	</head>
+	<body>
+		<h1>Přihláška do spolku MZ Česko, z.s.</h1>
+		<p class="no-print">Přihlášku prosím vyplňte elektronicky a poté vytiskněte. Formulář je interaktivní.</p>
+		<form id="form">
+			<table>
+				<tr>
+					<th>Jméno a příjmení</th>
+					<td><input type="text" name="name" required></td>
+				</tr>
+				<tr>
+					<th>Datum narození/RČ</th>
+					<td><input type="text" name="birth" required></td>
+				</tr>
+				<tr>
+					<th>E-mail</th>
+					<td><input type="email" name="email" required></td>
+				</tr>
+				<tr>
+					<th>IM (typ a identifikátor)</th>
+					<td><input type="text" name="im"></td>
+				</tr>
+				<tr>
+					<th>Další kontakt (např. telefon)</th>
+					<td><input type="text" name="contact"></td>
+				</tr>
+				<tr>
+					<th>Bydliště</th>
+					<td><textarea name="address" rows="4" required></textarea></td>
+				</tr>
+				<tr>
+					<th>Korespondenční adresa</th>
+					<td><textarea name="contactAddress" rows="4"></textarea></td>
+				</tr>
+				<tr>
+					<th>PGP/GPG fingerprint</th>
+					<td><input type="text" name="keyFingerprint" required></td>
+				</tr>
+				<tr>
+					<th>Soubor s klíčem</th>
+					<td><input type="text" name="keyServer" required></td>
+				</tr>
+			</table>
+		</form>
+		<button class="printButton no-print">Vytisknout</button>
+		<p class="signature no-live">………………………………………<br><small>datum, místo, podpis</small></p>
+		<div id="qrcode" class="no-live"></div>
+	</body>
+</html>
