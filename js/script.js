@@ -3,7 +3,7 @@ let formData = {
 	birth: null,
 	email: null,
 	im: null,
-	contact: null,
+	telephone: null,
 	address: null,
 	contactAddress: null,
 	keyFingerprint: null,
