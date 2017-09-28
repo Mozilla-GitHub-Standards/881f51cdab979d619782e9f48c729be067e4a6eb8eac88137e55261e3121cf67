@@ -1,3 +1,7 @@
+body, input, textarea {
+	font-family: "Times New Roman", Times, serif !important;
+}
+
 body {
 	text-align: center;
 }
@@ -40,6 +44,7 @@ input, textarea {
 	position: fixed;
 	bottom: 15px;
 	right: 20px;
+	width: 50%;
 }
 
 .signature {
