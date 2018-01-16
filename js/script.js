@@ -1,16 +1,6 @@
-let formData = {
-	name: null,
-	birth: null,
-	email: null,
-	im: null,
-	telephone: null,
-	address: null,
-	contactAddress: null,
-	keyFingerprint: null,
-	keyServer: null
-};
+'use strict';
 
-let QRC = qrcodegen.QrCode;
+const QRC = qrcodegen.QrCode;
 
 function b64EncodeUnicode(str) {
 	return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
@@ -19,15 +9,26 @@ function b64EncodeUnicode(str) {
 		}));
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
+function prepareQR(formInputs) {
+    const formData = {};
+    formInputs
+        .forEach((input) => {
+            formData[input.name] = input.value;
+        });
+    document.getElementById('qrcode').innerHTML =
+        QRC.encodeText(
+            b64EncodeUnicode(JSON.stringify(formData)),
+            QRC.Ecc.MEDIUM
+        ).toSvgString(4);
+}
 
-	$('input, textarea').on('change', function () {
-		formData[this.name] = $(this).val();
-		//$('#qrcode').html('').qrcode(b64EncodeUnicode(JSON.stringify(formData)));
-		$('#qrcode').html(QRC.encodeText(b64EncodeUnicode(JSON.stringify(formData)), QRC.Ecc.MEDIUM).toSvgString(4));
-	});
+document.addEventListener('DOMContentLoaded', () => {
+    const formInputs = document.querySelectorAll('#form input, #form textarea');
+    formInputs.forEach((input) => input.addEventListener('change', prepareQR(formInputs)));
 
-	$('#form').submit(function() {
-		window.print();
-	})
+    document.getElementById('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        prepareQR(formInputs);
+        window.print();
+    });
 });
