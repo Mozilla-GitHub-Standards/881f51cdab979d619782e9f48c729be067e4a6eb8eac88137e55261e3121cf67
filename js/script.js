@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		$('#qrcode').html(QRC.encodeText(b64EncodeUnicode(JSON.stringify(formData)), QRC.Ecc.MEDIUM).toSvgString(4));
 	});
 
-	$('button').click(function() {
+	$('#form').submit(function() {
 		window.print();
 	})
 });
