@@ -46,19 +46,18 @@ p {
 	text-align: left;
 }
 
-#qrcode {
-	position: fixed;
-	bottom: 15px;
-	right: 20px;
-	width: 50%;
+#foot {
+	vertical-align: bottom;
+}
+
+#foot > * {
+	display: inline-block;
+	width: 45%;
 }
 
 .signature {
-	text-align: left;
-	position: fixed;
-	bottom: 15px;
-	left: 20px;
-	width: 50%;
+	border-top: 1px dotted #000;
+	text-align: center;
 }
 
 .no-print {
